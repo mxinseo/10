@@ -5,23 +5,21 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	FILE* fp;
+	FILE* fp = NULL;
+	char c;
 	char str[30];
 	
-	fp = fopen("sample.txt", "w");
+	fp = fopen("sample.txt", "r");
 	
+	/*	
+	while((c=fgetc(fp)) != EOF){
+		putchar(c);
+	}
+	*/
 	
-	printf("input a word : ");
-	scanf("%s", &str);
-	fprintf(fp, "%s\n", str);
-
-	printf("input a word : ");
-	scanf("%s", &str);
-	fprintf(fp, "%s\n", str);
-	
-	printf("input a word : ");
-	scanf("%s", &str);
-	fprintf(fp, "%s\n", str);
+	while((fgets(str, 30, fp)) != NULL){
+		printf("%s", str);
+	}
 	
 	fclose(fp);
 	
